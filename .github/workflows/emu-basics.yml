@@ -1,10 +1,11 @@
+# This workflow is for quick functional test, splitted from EMU Test workflow for parallelization
 name: EMU Basics Test
 
 on:
   push:
-    branches: [ master, kunminghu-v3 ]
+    branches: [ kunminghu-v3 ]
   pull_request:
-    branches: [ master, kunminghu-v3 ]
+    branches: [ kunminghu-v3 ]
 
 env:
   # Set common environment variables for all jobs
@@ -36,7 +37,7 @@ jobs:
     runs-on: builder
     outputs:
       cluster: ${{ steps.save.outputs.cluster }}
-    timeout-minutes: 120
+    timeout-minutes: 180
     continue-on-error: false
     steps:
       - uses: actions/checkout@v6
